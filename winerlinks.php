@@ -144,10 +144,14 @@ class winerlinks {
 		$new_content = '';
 		$content_by_paragraph = preg_split( '/<\/p>/is', $the_content );
 		foreach ( $content_by_paragraph as $key => $paragraph ) {
-			// Prepend the graf with an anchor tag
-			$new_content .= '<a name="p' . $key . '"></a>';
-			// Add the link at the end of the graf
-			$new_content .= $paragraph . ' <a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+			$paragraph = rtrim( $paragraph );
+			if ( $paragraph ) {
+				$paragraph = preg_replace( '/<p>/is', '', $paragraph );
+				// Prepend the graf with an anchor tag
+				$new_content .= '<p><a name="p' . $key . '"></a>';
+				// Add the link at the end of the graf
+				$new_content .= $paragraph . ' <a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+			}
 		}
 		
 		return $new_content;

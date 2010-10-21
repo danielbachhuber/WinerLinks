@@ -141,7 +141,14 @@ class winerlinks {
 		global $post;
 		$options = $this->options;
 		
-		return $the_content;
+		$new_content = '';
+		$content_by_paragraph = preg_split( "</p>", $the_content );
+		foreach ( $content_by_paragraph as $key => $paragraph ) {
+			$new_content .= '<a name="p' . $key . '"></a>';
+			$new_content .= $paragraph . '<a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+		}
+		
+		return $new_content;
 		
 	}
 	

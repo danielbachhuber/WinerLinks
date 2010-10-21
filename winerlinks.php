@@ -141,20 +141,27 @@ class winerlinks {
 		global $post;
 		$options = $this->options;
 		
-		$new_content = '';
-		$content_by_paragraph = preg_split( '/<\/p>/is', $the_content );
-		foreach ( $content_by_paragraph as $key => $paragraph ) {
-			$paragraph = rtrim( $paragraph );
-			if ( $paragraph ) {
-				$paragraph = preg_replace( '/<p>/is', '', $paragraph );
-				// Prepend the graf with an anchor tag
-				$new_content .= '<p><a name="p' . $key . '"></a>';
-				// Add the link at the end of the graf
-				$new_content .= $paragraph . ' <a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
-			}
-		}
+		if ( ( is_single() && $options['enabled'] == 1 ) || ( is_page() && $options['enabled'] == 2 ) || ( is_page() || is_single() && $options['enabled'] == 3 ) ) {
 		
-		return $new_content;
+			$new_content = '';
+			$content_by_paragraph = preg_split( '/<\/p>/is', $the_content );
+			foreach ( $content_by_paragraph as $key => $paragraph ) {
+				$paragraph = rtrim( $paragraph );
+				// Check to make sure it actually has text
+				if ( $paragraph ) {
+					// Need to wrap our replacements in new p tags so it validates
+					$paragraph = preg_replace( '/<p>/is', '', $paragraph );
+					// Prepend the graf with an anchor tag
+					$new_content .= '<p><a name="p' . $key . '"></a>';
+					// Add the link at the end of the graf
+					$new_content .= $paragraph . ' <a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+				}
+			}
+		
+			return $new_content;
+		} else {
+			return $the_content;
+		}
 		
 	}
 	

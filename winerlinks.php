@@ -145,7 +145,7 @@ class winerlinks {
 		
 	}
 	
-} // END: class post_author_box
+} // END: class winerlinks
 
 global $winerlinks;
 $winerlinks = new winerlinks();

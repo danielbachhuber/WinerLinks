@@ -22,6 +22,9 @@ class winerlinks {
 
 	}
 	
+	/**
+	 * What we do when WordPress is initialized
+	 */ 
 	function init() {
 
 		$this->options = get_option( $this->options_group_name );
@@ -36,6 +39,9 @@ class winerlinks {
 		
 	}
 	
+	/**
+	 * What we do when the admin is initialized
+	 */
 	function admin_init() {
 		
 		$this->register_settings();
@@ -75,6 +81,9 @@ class winerlinks {
 		
 	}
 	
+	/**
+	 * The WinerLinks settings page for all of its settings glory
+	 */
 	function settings_page() {
 
 		?>                                   

@@ -64,7 +64,7 @@ class winerlinks {
 	}
 	
 	/**
-	 * Register all Post Author Box settings
+	 * Register all WinerLinks settings
 	 */
 	function register_settings() {
 		

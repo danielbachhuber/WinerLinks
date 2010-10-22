@@ -56,6 +56,7 @@ class winerlinks {
 		if ( $options['activated_once'] != 'on' ) {
 			$options['activated_once'] = 'on';
 			$options['enabled'] = 0;
+			$options['rss'] = 1;
 			update_option( $this->options_group_name, $options );
 		}
 	}
@@ -77,7 +78,8 @@ class winerlinks {
 		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
 		
 		add_settings_section( 'winerlinks_default', 'Settings', array(&$this, 'settings_section'), $this->settings_page );
-		add_settings_field( 'enabled', 'Enable WinerLinks', array(&$this, 'settings_enabled_option'), $this->settings_page, 'winerlinks_default' );	
+		add_settings_field( 'enabled', 'Enable WinerLinks', array(&$this, 'settings_enabled_option'), $this->settings_page, 'winerlinks_default' );
+		add_settings_field( 'rss', 'Add WinerLinks to RSS too?', array(&$this, 'settings_rss_option'), $this->settings_page, 'winerlinks_default' );	
 		
 	}
 	
@@ -129,6 +131,19 @@ class winerlinks {
 		echo '<option value="3"';
 		if ( $options['enabled'] == 3 ) { echo ' selected="selected"'; }
 		echo '>Enable on both</option>';		
+		echo '</select>';
+	}
+	
+	/**
+	 * Setting for whether WinerLinks are added to RSS
+	 */
+	function settings_rss_option() {
+		$options = $this->options;
+		echo '<select id="rss" name="' . $this->options_group_name . '[rss]">';
+		echo '<option value="0">Nope</option>';
+		echo '<option value="1"';
+		if ( $options['rss'] == 1 ) { echo ' selected="selected"'; }
+		echo '>Yessir</option>';		
 		echo '</select>';
 	}
 	

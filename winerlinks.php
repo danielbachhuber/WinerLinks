@@ -163,9 +163,9 @@ class winerlinks {
 					// Need to wrap our replacements in new p tags so it validates
 					$paragraph = preg_replace( '/<p>/is', '', $paragraph );
 					// Prepend the graf with an anchor tag
-					$new_content .= '<p><a name="p' . $key . '"></a>';
+					$new_content .= '<p class="winerlinks-enabled"><a name="p' . $key . '"></a>';
 					// Add the link at the end of the graf
-					$new_content .= $paragraph . ' <a href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+					$new_content .= $paragraph . ' <a class="winerlinks" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
 				}
 			}
 		

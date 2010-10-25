@@ -34,6 +34,7 @@ class winerlinks {
 		} else {
 			if ( $this->options['enabled'] ) {
 				add_filter( 'the_content', array(&$this, 'filter_the_content') );
+				add_filter( 'the_content_feed', array(&$this, 'filter_the_content') );				
 			}
 		}
 		
@@ -151,7 +152,7 @@ class winerlinks {
 		global $post;
 		$options = $this->options;
 		
-		if ( ( is_single() && $options['enabled'] == 1 ) || ( is_page() && $options['enabled'] == 2 ) || ( is_page() || is_single() && $options['enabled'] == 3 ) ) {
+		if ( ( is_single() && $options['enabled'] == 1 ) || ( is_page() && $options['enabled'] == 2 ) || ( is_page() || is_single() && $options['enabled'] == 3 ) || ( is_feed() && ( $options['enabled'] == 1 || $options['enabled'] == 3 ) ) ) {
 		
 			$new_content = '';
 			$content_by_paragraph = preg_split( '/<\/p>/is', $the_content );

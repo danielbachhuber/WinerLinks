@@ -1,0 +1,11 @@
+p.winerlinks-enabled a.winerlink {
+	display:none;
+}
+
+p.winerlinks-enabled.active a.winerlink {
+	display:inline;
+}
+
+p.winerlinks-enabled:hover a.winerlink {
+	display:inline;
+}

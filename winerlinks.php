@@ -8,7 +8,9 @@ Version: 0.1
 Author URI: http://www.danielbachhuber.com/
 */
 
-define('WINERLINKS_FILE_PATH', __FILE__);
+define( 'WINERLINKS_FILE_PATH', __FILE__ );
+define( 'WINERLINKS_URL', plugins_url(plugin_basename(dirname(__FILE__)) .'/') );
+define( 'WINERLINKS_VERSION', '0.1' );
 
 if ( !class_exists('winerlinks') ) {
 
@@ -32,9 +34,16 @@ class winerlinks {
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
 		} else {
+			// Only add WinerLinks if it's enabled
 			if ( $this->options['enabled'] ) {
 				add_filter( 'the_content', array(&$this, 'filter_the_content') );
-				add_filter( 'the_content_feed', array(&$this, 'filter_the_content') );				
+				add_filter( 'the_content_feed', array(&$this, 'filter_the_content') );
+				
+				// Only enqueue the stylesheet if showy-hidey mode is enabled
+				if ( $this->options['showhide'] ) {
+					wp_enqueue_style( 'winerlinks', WINERLINKS_URL.'css/winerlinks.css', false, WINERLINKS_VERSION );
+				}
+				
 			}
 		}
 		
@@ -180,7 +189,7 @@ class winerlinks {
 					// Prepend the graf with an anchor tag
 					$new_content .= '<p class="winerlinks-enabled"><a name="p' . $key . '"></a>';
 					// Add the link at the end of the graf
-					$new_content .= $paragraph . ' <a class="winerlinks" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+					$new_content .= $paragraph . ' <a class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
 				} else {
 					$new_content .= $paragraph;
 				}

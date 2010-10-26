@@ -189,7 +189,7 @@ class winerlinks {
 					// Prepend the graf with an anchor tag
 					$new_content .= '<p class="winerlinks-enabled"><a name="p' . $key . '"></a>';
 					// Add the link at the end of the graf
-					$new_content .= $paragraph . ' <a class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+					$new_content .= $paragraph . ' <a ref="permalink" title="Permalink to this paragraph" class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
 				} else {
 					$new_content .= $paragraph;
 				}

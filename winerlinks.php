@@ -158,18 +158,20 @@ class winerlinks {
 			$content_by_paragraph = preg_split( '/<\/p>/is', $the_content );
 			foreach ( $content_by_paragraph as $key => $paragraph ) {
 				$paragraph = rtrim( $paragraph );
-				// Check to make sure it actually has text
-				if ( $paragraph ) {
+				// Check to make sure it actually has text and that it hasn't already had links added. Else, append the graf
+				if ( $paragraph && !strpos( $paragraph, 'winerlinks-enabled' ) ) {
 					// Need to wrap our replacements in new p tags so it validates
 					$paragraph = preg_replace( '/<p>/is', '', $paragraph );
 					// Prepend the graf with an anchor tag
 					$new_content .= '<p class="winerlinks-enabled"><a name="p' . $key . '"></a>';
 					// Add the link at the end of the graf
 					$new_content .= $paragraph . ' <a class="winerlinks" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+				} else {
+					$new_content .= $paragraph;
 				}
 			}
-		
 			return $new_content;
+			
 		} else {
 			return $the_content;
 		}

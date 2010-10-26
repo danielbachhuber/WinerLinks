@@ -80,6 +80,7 @@ class winerlinks {
 		
 		add_settings_section( 'winerlinks_default', 'Settings', array(&$this, 'settings_section'), $this->settings_page );
 		add_settings_field( 'enabled', 'Enable WinerLinks', array(&$this, 'settings_enabled_option'), $this->settings_page, 'winerlinks_default' );
+		add_settings_field( 'showhide', 'Magical showy-hidey mode', array(&$this, 'settings_showhide_option'), $this->settings_page, 'winerlinks_default' );
 		
 	}
 	
@@ -132,6 +133,20 @@ class winerlinks {
 		if ( $options['enabled'] == 3 ) { echo ' selected="selected"'; }
 		echo '>Enable on both</option>';		
 		echo '</select>';
+	}
+	
+	/**
+	 * Setting for magical showy-hidey mode
+	 */
+	function settings_showhide_option() {
+		$options = $this->options;
+		echo '<select id="enabled" name="' . $this->options_group_name . '[showhide]">';
+		echo '<option value="0">Disabled</option>';
+		echo '<option value="1"';
+		if ( $options['showhide'] == 1 ) { echo ' selected="selected"'; }
+		echo '>Enabled</option>';	
+		echo '</select>';
+		echo '<p class="description">Enable magical showy-hidey mode to have your WinerLinks appear on hover';
 	}
 	
 	/**

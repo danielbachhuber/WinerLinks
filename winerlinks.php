@@ -4,13 +4,13 @@ Plugin Name: WinerLinks
 Plugin URI: http://www.danielbachhuber.com/projects/winerlinks/
 Description: Paragraph-level permalinks
 Author: Daniel Bachhuber
-Version: 0.1
+Version: 0.2
 Author URI: http://www.danielbachhuber.com/
 */
 
 define( 'WINERLINKS_FILE_PATH', __FILE__ );
 define( 'WINERLINKS_URL', plugins_url(plugin_basename(dirname(__FILE__)) .'/') );
-define( 'WINERLINKS_VERSION', '0.1' );
+define( 'WINERLINKS_VERSION', '0.2' );
 
 if ( !class_exists('winerlinks') ) {
 
@@ -66,7 +66,7 @@ class winerlinks {
 		if ( $options['activated_once'] != 'on' ) {
 			$options['activated_once'] = 'on';
 			$options['enabled'] = 0;
-			$options['rss'] = 1;
+			$options['showhide'] = 0;
 			update_option( $this->options_group_name, $options );
 		}
 	}

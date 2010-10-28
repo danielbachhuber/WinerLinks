@@ -25,6 +25,9 @@ Feel free to ask questions in the forum: http://wordpress.org/tags/winerlinks
 
 == Changelog ==
 
+= 0.2.1 =
+* Bug fix: Option for whether WinerLinks appear on posts and/or pages works properly
+
 = 0.2 =
 * Adds WinerLinks to your RSS feed if it's enabled for posts
 * Enable magical showy-hidey mode to only have WinerLinks appear on hover

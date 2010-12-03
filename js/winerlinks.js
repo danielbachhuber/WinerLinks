@@ -27,6 +27,7 @@ function winerlinks_gotoparagraph( p ) {
 
 /**
  * Go to a particular highlight on the page
+ * Props to the nytimes.com team
  */
 function winerlinks_gotohighlight( h, s ) {
 	
@@ -61,6 +62,10 @@ function winerlinks_gotohighlight( h, s ) {
 
 }
 
+/**
+ * Get the specific lines to highlight
+ * Props to the nytimes.com team
+ */
 function winerlinks_getlines( paragraph ) {
 	var _24 = paragraph.innerHTML;
     var _25 = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,Mr,Ms,Mrs,Miss,Msr,Dr,Gov,Pres,Sen,Prof,Gen,Rep,St,Messrs,Col,Sr,Jf,Ph,etc,Sgt,Mgr,oz,cf,viz,sc,ca,Ave,Fr,Rev,No";
@@ -77,6 +82,7 @@ function winerlinks_getlines( paragraph ) {
 
 /**
  * Read the hash on the location to determine whether we're highlighting anything
+ * Props to the nytimes.com team
  */
 function winerlinks_readhash() {
 	var p,

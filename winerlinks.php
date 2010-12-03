@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WinerLinks
+Plugin Name: Winerlinks
 Plugin URI: http://danielbachhuber.com/projects/winerlinks/
 Description: Paragraph-level permalinks. See them in use at <a href="http://scripting.com/">http://scripting.com</a>, <a href="http://pressthink.org/">http://pressthink.org</a>, or any <a href="http://nytimes.com/">http://nytimes.com</a> article
 Author: Daniel Bachhuber
@@ -35,7 +35,7 @@ class winerlinks {
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
 		} else {
-			// Only add WinerLinks if it's enabled
+			// Only add Winerlinks if it's enabled
 			if ( $this->options['enabled'] ) {
 				add_filter( 'the_content', array(&$this, 'filter_the_content') );
 				add_filter( 'the_content_feed', array(&$this, 'filter_the_content') );
@@ -77,25 +77,25 @@ class winerlinks {
 	 */
 	function add_admin_menu_items() {
 		
-		add_submenu_page( 'options-general.php', 'WinerLinks Settings', 'WinerLinks', 'manage_options', 'winerlinks', array( &$this, 'settings_page' ) );			
+		add_submenu_page( 'options-general.php', 'Winerlinks Settings', 'Winerlinks', 'manage_options', 'winerlinks', array( &$this, 'settings_page' ) );			
 		
 	}
 	
 	/**
-	 * Register all WinerLinks settings
+	 * Register all Winerlinks settings
 	 */
 	function register_settings() {
 		
 		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
 		
 		add_settings_section( 'winerlinks_default', 'Settings', array(&$this, 'settings_section'), $this->settings_page );
-		add_settings_field( 'enabled', 'Enable WinerLinks', array(&$this, 'settings_enabled_option'), $this->settings_page, 'winerlinks_default' );
+		add_settings_field( 'enabled', 'Enable Winerlinks', array(&$this, 'settings_enabled_option'), $this->settings_page, 'winerlinks_default' );
 		add_settings_field( 'showhide', 'Magical showy-hidey mode', array(&$this, 'settings_showhide_option'), $this->settings_page, 'winerlinks_default' );
 		
 	}
 	
 	/**
-	 * The WinerLinks settings page for all of its settings glory
+	 * The Winerlinks settings page for all of its settings glory
 	 */
 	function settings_page() {
 
@@ -103,7 +103,7 @@ class winerlinks {
 		<div class="wrap">
 			<div class="icon32" id="icon-options-general"><br/></div>
 
-			<h2><?php _e('WinerLinks', 'winerlinks') ?></h2>
+			<h2><?php _e('Winerlinks', 'winerlinks') ?></h2>
 
 			<form action="options.php" method="post">
 
@@ -127,7 +127,7 @@ class winerlinks {
 	}
 	
 	/**
-	 * Setting for whether WinerLinks are enabled or not
+	 * Setting for whether Winerlinks are enabled or not
 	 */
 	function settings_enabled_option() {
 		$options = $this->options;
@@ -156,7 +156,7 @@ class winerlinks {
 		if ( $options['showhide'] == 1 ) { echo ' selected="selected"'; }
 		echo '>Enabled</option>';	
 		echo '</select>';
-		echo '<p class="description">Enable magical showy-hidey mode to have your WinerLinks appear on hover';
+		echo '<p class="description">Enable magical showy-hidey mode to have your Winerlinks appear on hover';
 	}
 	
 	/**

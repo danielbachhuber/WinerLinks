@@ -42,8 +42,11 @@ class winerlinks {
 				
 				// Only enqueue the stylesheet if showy-hidey mode is enabled
 				if ( $this->options['showhide'] ) {
-					wp_enqueue_style( 'winerlinks', WINERLINKS_URL.'css/winerlinks.css', false, WINERLINKS_VERSION );
+					wp_enqueue_style( 'winerlinks-css', WINERLINKS_URL . 'css/winerlinks.css', false, WINERLINKS_VERSION );
 				}
+				
+				// We always need the Javascript for highlighting
+				wp_enqueue_script( 'winerlinks-js', WINERLINKS_URL . 'js/winerlinks.js', array( 'jquery' ), WINERLINKS_VERSION, true );
 				
 			}
 		}

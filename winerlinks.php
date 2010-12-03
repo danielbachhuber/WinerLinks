@@ -18,7 +18,8 @@ class winerlinks {
 	
 	var $options_group = 'winerlinks_';
 	var $options_group_name = 'winerlinks_options';
-	var $settings_page = 'winerlinks_settings';	
+	var $settings_page = 'winerlinks_settings';
+	var $winerlink_character = '#';
 	
 	function __construct() {
 
@@ -176,6 +177,9 @@ class winerlinks {
 		global $post;
 		$options = $this->options;
 		
+		// Users can customize the WinerLink character with a filter
+		$this->winerlink_character = strip_tags( apply_filters( 'winerlink_character', $this->winerlink_character ) );
+		
 		if ( ( is_single() && $options['enabled'] == 1 ) || ( is_page() && $options['enabled'] == 2 ) || ( ( is_page() || is_single() ) && $options['enabled'] == 3 ) || ( is_feed() && ( $options['enabled'] == 1 || $options['enabled'] == 3 ) ) ) {
 		
 			$new_content = '';
@@ -189,7 +193,7 @@ class winerlinks {
 					// Prepend the graf with an anchor tag
 					$new_content .= '<p class="winerlinks-enabled"><a name="p' . $key . '"></a>';
 					// Add the link at the end of the graf
-					$new_content .= $paragraph . ' <a ref="permalink" title="Permalink to this paragraph" class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">#</a></p>';
+					$new_content .= $paragraph . ' <a ref="permalink" title="Permalink to this paragraph" class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">' . $this->winerlink_character . '</a></p>';
 				} else {
 					$new_content .= $paragraph;
 				}

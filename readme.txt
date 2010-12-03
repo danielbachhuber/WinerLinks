@@ -31,7 +31,7 @@ Feel free to ask questions in the forum: http://wordpress.org/tags/winerlinks
 == Changelog ==
 
 = 0.3 =
-
+* Modify the WinerLink character by adding a 'winerlink_character' filter
 
 = 0.2.1 =
 * Bug fix: Option for whether WinerLinks appear on posts and/or pages works properly

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WinerLinks
-Plugin URI: http://www.danielbachhuber.com/projects/winerlinks/
+Plugin URI: http://danielbachhuber.com/projects/winerlinks/
 Description: Paragraph-level permalinks
 Author: Daniel Bachhuber
 Version: 0.2.1
-Author URI: http://www.danielbachhuber.com/
+Author URI: http://danielbachhuber.com/
 */
 
 define( 'WINERLINKS_FILE_PATH', __FILE__ );

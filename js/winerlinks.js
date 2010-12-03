@@ -12,20 +12,6 @@ function winerlinks_allparagraphs() {
 }
 
 /**
- * Go to a particular paragraph on the page
- */
-function winerlinks_gotoparagraph( p ) {
-	if ( !p ) {
-        return;
-    }
-    var graf_location = winerlinked_paragraphs[p - 1] || false;
-
-    if ( graf_location ) {
-		graf_location.scrollTo();
-    }
-}
-
-/**
  * Go to a particular highlight on the page
  * Props to the nytimes.com team
  */

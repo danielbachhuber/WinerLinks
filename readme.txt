@@ -5,11 +5,11 @@ Requires at least: 2.9.2
 Tested up to: 3.0.1
 Stable tag: trunk
 
-Paragraph-level permalinks for your posts or pages
+Paragraph-level permalinks for your posts or pages.
 
 == Description ==
 
-WinerLinks adds paragraph-level permalinks to your posts or pages. See it in use at http://scriptingnews.com or http://pressthink.org
+WinerLinks adds paragraph-level permalinks to your posts or pages. See them in use at http://scripting.com, http://pressthink.org, or any http://nytimes.com article
 
 == Installation ==
 
@@ -23,7 +23,15 @@ Feel free to ask questions in the forum: http://wordpress.org/tags/winerlinks
 
 == Screenshots ==
 
+== Upgrade Notice ==
+
+= 0.3 =
+
+
 == Changelog ==
+
+= 0.3 =
+
 
 = 0.2.1 =
 * Bug fix: Option for whether WinerLinks appear on posts and/or pages works properly

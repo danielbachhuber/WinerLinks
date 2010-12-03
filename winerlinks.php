@@ -2,7 +2,7 @@
 /*
 Plugin Name: WinerLinks
 Plugin URI: http://danielbachhuber.com/projects/winerlinks/
-Description: Paragraph-level permalinks
+Description: Paragraph-level permalinks. See them in use at <a href="http://scripting.com/">http://scripting.com</a>, <a href="http://pressthink.org/">http://pressthink.org</a>, or any <a href="http://nytimes.com/">http://nytimes.com</a> article
 Author: Daniel Bachhuber
 Version: 0.2.1
 Author URI: http://danielbachhuber.com/

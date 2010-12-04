@@ -197,10 +197,11 @@ class winerlinks {
 			// Reindex the array
 			$content_by_paragraph = array_values( $content_by_paragraph );
 			
-			foreach ( $content_by_paragraph as $key => $paragraph ) {
+			foreach ( $content_by_paragraph as $index => $paragraph ) {
 				$paragraph = rtrim( $paragraph );
 				// Check to ensure Winerlinks haven't already been added
 				if ( !strpos( $paragraph, 'winerlinks-enabled' ) ) {
+					$key = $index + 1;
 					// Insert the Winerlink at the ending of the graf
 					$winerlink = ' <a ref="permalink" title="Permalink to this paragraph" class="winerlink" href="'. get_permalink( $post->ID ) . '#p' . $key . '">' . $this->winerlink_character . '</a></p>';
 					$paragraph = preg_replace( '/<\/p>/is', $winerlink, $paragraph );

@@ -23,7 +23,7 @@ function winerlinks_gotohighlight( h, s ) {
     var _1b = "<span class='winerlinks-highlight' style='background-color:#FFF8D9;'>";
     var _1c = "</span>";
     for ( var i = 0; i < h.length; i++ ) {
-        var _1e = winerlinked_paragraphs[h[i]] || false;
+        var _1e = winerlinked_paragraphs[h[i] - 1] || false;
         if (_1e) {
             var _1f = s[h[i].toString()];
             if (_1f == undefined) {
@@ -40,11 +40,8 @@ function winerlinks_gotohighlight( h, s ) {
             }
         }
     }
-	// @todo Scroll after the highlight. Doesn't work currently
-	var graf_location = winerlinked_paragraphs[h[0]] || false;
-    if ( graf_location ) {
-		graf_location.scrollTo();
-    }
+
+	// @todo Scroll after the highlight?
 
 }
 
